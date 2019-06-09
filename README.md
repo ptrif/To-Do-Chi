@@ -1,8 +1,8 @@
-## To-Do-Chi
+# To-Do-Chi
 A small ToDo List desktop app for me and my friends.
 Final project of 1st semester.
 
-# In near future
+## In near future
 1) Re-Design
 2) Improve user experience 
 3) Code all the buttons
