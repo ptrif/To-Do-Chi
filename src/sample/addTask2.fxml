@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #90caf9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddTask">
+    <children>
+        <AnchorPane prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #5d99c6;">
+            <children>
+                <Label alignment="CENTER" layoutX="173.0" layoutY="8.0" prefHeight="21.0" prefWidth="255.0" text="To-Do-Chi" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Leelawadee UI" size="33.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="rootAncPane" layoutX="14.0" layoutY="76.0" prefHeight="310.0" prefWidth="572.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <Text fx:id="noTaskForTodayText" fill="#8e99f3" layoutX="40.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Task" textAlignment="CENTER" wrappingWidth="155.6708984375">
+                    <font>
+                        <Font name="Leelawadee UI" size="22.0" />
+                    </font>
+                </Text>
+                <ImageView fx:id="addTaskButton" fitHeight="81.0" fitWidth="83.0" layoutX="79.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@iconsStuff/2x/outline_add_circle_outline_black_48dp.png" />
+                    </image>
+                </ImageView>
+            <Button fx:id="viewButton" layoutX="409.0" layoutY="146.0" minHeight="78.0" minWidth="78.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 5em; -fx-min-width: 75px; -fx-min-height: 75px; -fx-max-width: 75px; -fx-max-height: 75px; -fx-background-color: #8e99f3;" text="view" textFill="WHITE" />
+            <Label fx:id="goToLabel" alignment="CENTER" layoutX="375.0" layoutY="101.0" prefHeight="32.0" prefWidth="144.0" text="Go to ToDo`s" textAlignment="CENTER" textFill="#8e99f3">
+               <font>
+                  <Font name="Leelawadee UI" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="welcomLabel" alignment="CENTER" layoutX="94.0" layoutY="7.0" prefHeight="81.0" prefWidth="400.0" text="Welcom to To-Do-Chi!" textFill="#8e99f3">
+               <font>
+                  <Font name="Leelawadee UI" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="orLabel" alignment="CENTER" layoutX="257.0" layoutY="173.0" prefHeight="32.0" prefWidth="51.0" text="or" textFill="#8e99f3">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

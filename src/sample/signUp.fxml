@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="540.0" prefWidth="340.0" style="-fx-background-color: #90caf9;"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignUp">
+    <children>
+        <AnchorPane prefHeight="70.0" prefWidth="340.0" style="-fx-background-color: #5d99c6;">
+            <children>
+                <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="87.0" layoutY="9.0" text="To-Do-Chi"
+                       textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Leelawadee UI" size="36.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="7.0" layoutY="76.0" prefHeight="456.0" prefWidth="327.0"
+                    style="-fx-background-color: #ffffff;">
+            <children>
+                <TextField fx:id="signUpFullName" layoutX="70.0" layoutY="123.0" promptText="Full Name"/>
+                <TextField fx:id="signUpUsername" layoutX="70.0" layoutY="197.0" promptText="UserName"/>
+                <PasswordField fx:id="signUpPassword" layoutX="70.0" layoutY="270.0" promptText="Password"/>
+                <CheckBox fx:id="signUpMale" layoutX="70.0" layoutY="332.0" mnemonicParsing="false" prefHeight="21.0"
+                          prefWidth="80.0" selected="true" text="Male "/>
+                <CheckBox fx:id="signUpFemale" layoutX="168.0" layoutY="332.0" mnemonicParsing="false" prefHeight="21.0"
+                          prefWidth="89.0" text="Female"/>
+                <Label alignment="CENTER" layoutX="37.0" layoutY="40.0" prefHeight="45.0" prefWidth="253.0"
+                       text="It's time to get in!" textFill="#8e99f3">
+                    <font>
+                        <Font name="Leelawadee UI" size="30.0"/>
+                    </font>
+                </Label>
+                <Button fx:id="signUpStartButton" layoutX="80.0" layoutY="395.0" mnemonicParsing="false"
+                        prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #8e99f3;" text="START!"
+                        textFill="WHITE"/>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

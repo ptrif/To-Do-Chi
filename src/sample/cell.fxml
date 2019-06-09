@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootAnchorPane" prefHeight="100.0" prefWidth="328.0" style="-fx-background-color: #c3fdff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label fx:id="taskLabel" alignment="BASELINE_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #fffffFff;" text=" TaskLabel" textFill="#393838" />
+        <Label fx:id="descriptionLabel" layoutX="14.0" layoutY="50.0" prefHeight="21.0" prefWidth="182.0" style="-fx-background-color: #90caf9;" text=" Description" textFill="WHITE" />
+        <Label fx:id="dateLabel" alignment="CENTER_RIGHT" layoutX="113.0" layoutY="76.0" prefHeight="21.0" prefWidth="215.0" text="Date Created" textFill="#5d99c6" />
+        <Button fx:id="deleteTaskButton" layoutX="266.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #8e99f3;" text="delete" textFill="WHITE">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="15.0" />
+         </font></Button>
+    </children>
+</AnchorPane>
