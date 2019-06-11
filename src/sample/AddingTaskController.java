@@ -35,6 +35,21 @@ public class AddingTaskController {
     private TextField descriptionField;
 
     @FXML
+    private TextField taskTextFieldNew;
+
+    @FXML
+    private TextField descriptionFieldNew;
+
+    @FXML
+    private Button saveTaskButtonNew;
+
+    @FXML
+    private Button viewToDosButtonN;
+
+    @FXML
+    private Label taskAddedLabelN;
+
+    @FXML
     void initialize() {
         databaseHandler = new DatabaseHandler();
 

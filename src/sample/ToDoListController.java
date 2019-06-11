@@ -1,18 +1,32 @@
 package sample;
 
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import sample.Database.DatabaseHandler;
 import sample.mods.Task;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ToDoListController {
+
+    public static int userId;
+
+
+    @FXML
+    private AnchorPane rootAncPane;
 
     @FXML
     private ListView<Task> tasksList;
@@ -21,13 +35,7 @@ public class ToDoListController {
     private Button closeSesameButton;
 
     @FXML
-    private Button saveTaskButtonList;
-
-    @FXML
-    private TextField descriptionFieldList;
-
-    @FXML
-    private TextField taskTextFieldList;
+    private Button addTaskButton2do;
 
     private ObservableList<Task> tasks;
 
@@ -35,6 +43,9 @@ public class ToDoListController {
 
     @FXML
     void initialize() throws SQLException {
+        addTaskButton2do.setOnAction(event -> {
+            showAddTask();
+        });
 
         tasks = FXCollections.observableArrayList();
 
@@ -55,13 +66,35 @@ public class ToDoListController {
         tasksList.setItems(tasks);
         tasksList.setCellFactory(CellController -> new CellController());
 
+
     }
 
-    //think about saving tasks from ToDoList saver
-
-    //think about refresher for List
 
     //think about log out button
 
 
+    public static int getUserId() {
+        return userId;
+    }
+
+    public static void setUserId(int userId) {
+        ToDoListController.userId = userId;
+    }
+
+    public void showAddTask(){
+        tasksList.getScene().getWindow().hide();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/sample/actualAddingTask.fxml"));
+        try {
+            loader.load();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

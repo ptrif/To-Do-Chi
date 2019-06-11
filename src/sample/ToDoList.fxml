@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #90caf9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ToDoListController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="wholeAncPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #90caf9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ToDoListController">
     <children>
-        <AnchorPane layoutY="-2.0" prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #5d99c6;">
+        <AnchorPane fx:id="rootAncPane" layoutY="-2.0" prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #5d99c6;">
             <children>
                 <Label alignment="CENTER" layoutX="118.0" layoutY="15.0" prefHeight="21.0" prefWidth="364.0" text="My ToDo`s" textFill="WHITE">
                     <font>
@@ -19,18 +16,12 @@
                 </Label>
             </children>
         </AnchorPane>
-        <ListView fx:id="tasksList" layoutX="9.0" layoutY="67.0" prefHeight="325.0" prefWidth="378.0" />
-      <Button fx:id="saveTaskButtonList" layoutX="434.0" layoutY="252.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="116.0" style="-fx-background-color: #8e99f3;" text="Save Task" textFill="WHITE">
+        <ListView fx:id="tasksList" layoutX="9.0" layoutY="67.0" prefHeight="325.0" prefWidth="410.0" />
+      <Button fx:id="closeSesameButton" layoutX="451.0" layoutY="230.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #5d99c6;" text="Close Sesame" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Leelawadee UI" size="15.0" />
          </font>
       </Button>
-      <TextField fx:id="descriptionFieldList" layoutX="404.0" layoutY="184.0" prefHeight="46.0" prefWidth="175.0" promptText="Description" />
-      <TextField fx:id="taskTextFieldList" layoutX="404.0" layoutY="121.0" prefHeight="46.0" prefWidth="175.0" promptText="Task" />
-      <Button fx:id="closeSesameButton" layoutX="434.0" layoutY="299.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #5d99c6;" text="Close Sesame" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Leelawadee UI" size="15.0" />
-         </font>
-      </Button>
+      <Button fx:id="addTaskButton2do" layoutX="451.0" layoutY="185.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #8e99f3;" text="Add Task" textFill="WHITE" />
     </children>
 </AnchorPane>

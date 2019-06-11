@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.paint.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="310.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddingTaskController">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="310.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.AddingTaskController">
     <children>
-        <TextField fx:id="taskTextField" layoutX="133.0" layoutY="51.0" prefHeight="67.0" prefWidth="306.0" promptText="Task" />
-        <TextField fx:id="descriptionField" layoutX="133.0" layoutY="135.0" prefHeight="54.0" prefWidth="306.0" promptText="Description" />
-        <Button fx:id="saveTaskButton" layoutX="228.0" layoutY="210.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="116.0" style="-fx-background-color: #8e99f3;" text="Save Task" textFill="WHITE">
+        <TextField fx:id="taskTextField" layoutX="133.0" layoutY="51.0" prefHeight="67.0" prefWidth="306.0"
+                   promptText="Task"/>
+        <TextField fx:id="descriptionField" layoutX="133.0" layoutY="135.0" prefHeight="54.0" prefWidth="306.0"
+                   promptText="Description"/>
+        <Button fx:id="saveTaskButton" layoutX="228.0" layoutY="210.0" mnemonicParsing="false" prefHeight="27.0"
+                prefWidth="116.0" style="-fx-background-color: #8e99f3;" text="Save Task" textFill="WHITE">
             <font>
-                <Font name="Leelawadee UI" size="15.0" />
+                <Font name="Leelawadee UI" size="15.0"/>
             </font>
         </Button>
-      <Label fx:id="taskAddedLabel" alignment="CENTER" layoutX="133.0" layoutY="14.0" prefHeight="21.0" prefWidth="306.0" text="Task added! Another one?" textFill="#26418f" visible="false">
-         <font>
-            <Font name="Leelawadee UI" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="viewToDosButton" layoutX="230.0" layoutY="252.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #5c6bc0;" text="View ToDo`s" textFill="WHITE" visible="false">
-         <font>
-            <Font name="Leelawadee UI" size="15.0" />
-         </font>
-      </Button>
+        <Label fx:id="taskAddedLabel" alignment="CENTER" layoutX="133.0" layoutY="14.0" prefHeight="21.0"
+               prefWidth="306.0" text="Task added! Another one?" textFill="#26418f" visible="false">
+            <font>
+                <Font name="Leelawadee UI" size="18.0"/>
+            </font>
+        </Label>
+        <Button fx:id="viewToDosButton" layoutX="230.0" layoutY="252.0" mnemonicParsing="false" prefHeight="31.0"
+                prefWidth="116.0" style="-fx-background-color: #5c6bc0;" text="View ToDo`s" textFill="WHITE"
+                visible="false">
+            <font>
+                <Font name="Leelawadee UI" size="15.0"/>
+            </font>
+        </Button>
     </children>
 </AnchorPane>

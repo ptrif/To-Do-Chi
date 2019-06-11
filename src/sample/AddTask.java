@@ -22,6 +22,9 @@ public class AddTask {
     private Button viewButton;
 
     @FXML
+    private Button testButton;
+
+    @FXML
     private ImageView addTaskButton;
 
     @FXML
@@ -34,6 +37,8 @@ public class AddTask {
     @FXML
     void initialize() {
         viewButton.setOnAction(event -> showToDoList());
+
+
 
         addTaskButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 

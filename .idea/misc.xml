@@ -5,6 +5,7 @@
   </component>
   <component name="ProjectPlainTextFileTypeManager">
     <file url="file://$PROJECT_DIR$/src/sample/broken.fxml" />
+    <file url="file://$PROJECT_DIR$/src/sample/nAddnigTask.fxml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true">
     <output url="file://$PROJECT_DIR$/out" />
