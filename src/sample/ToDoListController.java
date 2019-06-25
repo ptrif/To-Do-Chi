@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +11,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import sample.Database.DatabaseHandler;
 import sample.mods.Task;
 
@@ -22,14 +20,11 @@ import java.sql.SQLException;
 
 public class ToDoListController {
 
-    public static int userId;
-
-
     @FXML
     private AnchorPane rootAncPane;
 
     @FXML
-    private ListView<Task> tasksList;
+    private ListView<Task> tasksList; //позволяет создавать списки в javafx, создается либо пустым либо с наблюдаемыми списками
 
     @FXML
     private Button closeSesameButton;
@@ -37,20 +32,22 @@ public class ToDoListController {
     @FXML
     private Button addTaskButton2do;
 
-    private ObservableList<Task> tasks;
+    private ObservableList<Task> tasks; //наблюдаемый список
 
-    private DatabaseHandler databaseHandler;
 
     @FXML
     void initialize() throws SQLException {
-        addTaskButton2do.setOnAction(event -> {
+
+        addTaskButton2do.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            System.out.println("Go to Adding Task");
             showAddTask();
+
         });
 
         tasks = FXCollections.observableArrayList();
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ResultSet resultSet = databaseHandler.getTasksByUserId(AddTask.userId);
+        ResultSet resultSet = databaseHandler.getTasksByUserId(Controller.userId);
 
         while (resultSet.next()) {
             System.out.println("user tasks: " + resultSet.getString("task"));
@@ -66,24 +63,23 @@ public class ToDoListController {
         tasksList.setItems(tasks);
         tasksList.setCellFactory(CellController -> new CellController());
 
+        closeSesameButton.setOnAction(event -> {
+            //some kinda of log out button
+            // rootAncPane.getScene().getWindow().hide();
+            Stage stage = (Stage) rootAncPane.getScene().getWindow();
+            stage.close();
+        });
+
 
     }
 
-
-    //think about log out button
-
-
-    public static int getUserId() {
-        return userId;
+    private void closeButtonAction(){
+        Stage stage = (Stage) tasksList.getScene().getWindow();
+        stage.close();
     }
 
-    public static void setUserId(int userId) {
-        ToDoListController.userId = userId;
-    }
-
-    public void showAddTask(){
-        tasksList.getScene().getWindow().hide();
-
+    private void showAddTask(){
+        //tasksList.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/actualAddingTask.fxml"));
         try {
@@ -96,5 +92,8 @@ public class ToDoListController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+        closeButtonAction();
+
     }
+
 }

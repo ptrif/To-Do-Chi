@@ -2,6 +2,7 @@ package sample.Database;
 
 import sample.mods.Task;
 import sample.mods.User;
+
 import java.sql.*;
 
 public class DatabaseHandler extends Configurations {
@@ -14,8 +15,6 @@ public class DatabaseHandler extends Configurations {
 
         return DriverManager.getConnection(connectionString, dbUser, dbPass);
     }
-
-    //write
 
     public void signUpUser(User user) {
         String insert = "INSERT INTO" + " " + Const.USERS_TABLE
@@ -38,7 +37,6 @@ public class DatabaseHandler extends Configurations {
             e.printStackTrace();
         }
     }
-
 
     public ResultSet getUser(User user) {
         ResultSet resultSet = null;
@@ -130,7 +128,6 @@ public class DatabaseHandler extends Configurations {
         return resultSet;
     }
 
-
     //delete task
     public void deleteTask(int userId, int taskId) throws SQLException, ClassNotFoundException {
         String query = "DELETE FROM tasks WHERE userid=? AND taskid=?";
@@ -141,8 +138,5 @@ public class DatabaseHandler extends Configurations {
         preparedStatement.execute();
         preparedStatement.close();
     }
-
-    //edit task
-
 
 }

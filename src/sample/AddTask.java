@@ -6,26 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.IOException;
 
 public class AddTask {
 
-    public static int userId;
-
     @FXML
     private Button viewButton;
-
-    @FXML
-    private Button testButton;
-
-    @FXML
-    private ImageView addTaskButton;
 
     @FXML
     private Text noTaskForTodayText;
@@ -33,21 +25,20 @@ public class AddTask {
     @FXML
     private AnchorPane rootAncPane;
 
+    @FXML
+    private Button addTaskButtonB;
 
     @FXML
     void initialize() {
         viewButton.setOnAction(event -> showToDoList());
 
+        addTaskButtonB.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> {
+            System.out.println("CLiCKED!");
 
-
-        addTaskButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-
-            System.out.println("Add Clicked!");
-
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2f), addTaskButton);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2f), addTaskButtonB);
             FadeTransition textTransition = new FadeTransition(Duration.seconds(2f), noTaskForTodayText);
 
-            addTaskButton.setOpacity(0);
+            addTaskButtonB.setOpacity(0);
             noTaskForTodayText.setOpacity(0);
 
             fadeTransition.setFromValue(1f);
@@ -64,7 +55,7 @@ public class AddTask {
 
             try {
                 AnchorPane formPane = FXMLLoader.load(getClass().getResource("/sample/actualAddingTask.fxml"));
-                AddTask.userId = getUserId();
+                Controller.userId = getUserId();
 
                 FadeTransition rootTransition = new FadeTransition(Duration.seconds(1), formPane);
                 rootTransition.setFromValue(0f);
@@ -83,18 +74,22 @@ public class AddTask {
 
     }
 
-    public void setUserId(int userId) {
-        AddTask.userId = userId;
-        System.out.println("User Id is " + AddTask.userId);
+    void setUserId(int userId) {
+        Controller.userId = userId;
+        System.out.println("User Id from Controller is: " + Controller.userId);
     }
 
-    public int getUserId() {
-        return userId;
+    int getUserId() {
+        return Controller.userId;
     }
 
-    public void showToDoList (){
-        addTaskButton.getScene().getWindow().hide();
+    private void closeButtonAction(){
+        Stage stage = (Stage) addTaskButtonB.getScene().getWindow();
+        stage.close();
+    }
 
+    private void showToDoList(){
+        //addTaskButtonB.getScene().getWindow().hide(); //убрать окно
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/ToDoList.fxml"));
 
@@ -108,7 +103,8 @@ public class AddTask {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
 
-        stage.showAndWait();
-    }
+        stage.show();
+        closeButtonAction();
 
+    }
 }

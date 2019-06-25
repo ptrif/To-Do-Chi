@@ -12,7 +12,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(Timestamp detecreated, String description, String task) {
+    public Task(String description, String task) {
         this.description = description;
         this.task = task;
     }

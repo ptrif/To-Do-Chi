@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import sample.Database.DatabaseHandler;
 import sample.mods.Task;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -34,7 +35,16 @@ public class CellController extends JFXListCell<Task> {
 
     @FXML
     void initialize() {
+        if (fxmlLoader == null) {
+            fxmlLoader = new FXMLLoader(getClass().getResource("/sample/cell.fxml"));
+            fxmlLoader.setController(this);
 
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -45,27 +55,17 @@ public class CellController extends JFXListCell<Task> {
             setText(null);
             setGraphic(null);
         } else {
+            initialize();
+            int taskId = myTask.getTaskId();
 
-            if (fxmlLoader == null) {
-                fxmlLoader = new FXMLLoader(getClass().getResource("/sample/cell.fxml"));
-                fxmlLoader.setController(this);
-
-                try {
-                    fxmlLoader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
             taskLabel.setText(myTask.getTask());
             dateLabel.setText(myTask.getDatecreated().toString());
             descriptionLabel.setText(myTask.getDescription());
 
-            int taskId = myTask.getTaskId();
-
             deleteTaskButton.setOnAction(event -> {
                 databaseHandler = new DatabaseHandler();
                 try {
-                    databaseHandler.deleteTask(AddTask.userId, taskId);
+                    databaseHandler.deleteTask(Controller.userId, taskId);
 
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -74,10 +74,8 @@ public class CellController extends JFXListCell<Task> {
 
             });
 
-
             setText(null);
             setGraphic(rootAnchorPane);
-
         }
     }
 }

@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.Animations.ShakeItUp;
 import sample.Database.DatabaseHandler;
@@ -19,7 +22,7 @@ import java.sql.SQLException;
 //login Controller
 public class Controller {
 
-    private int userId;
+    public static int userId;
 
     @FXML
     private TextField loginUserName;
@@ -55,7 +58,7 @@ public class Controller {
 
                 if (count == 1) {
                     System.out.println("SESAME IS OPEN!");
-                    showAddTaskPage();
+                    showAddTask();
 
                 } else {
                     ShakeItUp userNameShaker = new ShakeItUp(loginUserName);
@@ -71,9 +74,20 @@ public class Controller {
             }
         });
 
+//TAB+ENTER than it will work
+        loginOpenSesameButton.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            loginOpenSesameButton.setOnKeyPressed((final KeyEvent keyEvent) -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    loginOpenSesameButton.fire();
+                    keyEvent.consume();
+                }
+            });
+        });
+
+
 // takes users to sign-up page
-        loginGetKeyButton.setOnAction(event -> {
-            loginGetKeyButton.getScene().getWindow().hide();
+        loginGetKeyButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            //loginGetKeyButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/sample/signUp.fxml"));
 
@@ -86,15 +100,20 @@ public class Controller {
             Parent root = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.showAndWait();
-
+            stage.show();
+            closeButtonAction();
         });
 
     }
 
+    private void closeButtonAction() {
+        Stage stage = (Stage) loginGetKeyButton.getScene().getWindow();
+        stage.close();
+    }
+
     // Takes users to AddTask page
-    private void showAddTaskPage() {
-       loginGetKeyButton.getScene().getWindow().hide();
+    private void showAddTask() {
+        // loginGetKeyButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/addTask2.fxml"));
 
@@ -111,8 +130,8 @@ public class Controller {
         AddTask addTask = loader.getController();
         addTask.setUserId(userId);
 
-
-        stage.showAndWait();
+        stage.show();
+        closeButtonAction();
     }
 
 }

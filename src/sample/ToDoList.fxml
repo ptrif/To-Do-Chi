@@ -17,7 +17,7 @@
             </children>
         </AnchorPane>
         <ListView fx:id="tasksList" layoutX="9.0" layoutY="67.0" prefHeight="325.0" prefWidth="410.0" />
-      <Button fx:id="closeSesameButton" layoutX="451.0" layoutY="230.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #5d99c6;" text="Close Sesame" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="closeSesameButton" layoutX="451.0" layoutY="238.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #5d99c6;" text="Close Sesame" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Leelawadee UI" size="15.0" />
          </font>

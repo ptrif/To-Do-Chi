@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Database.DatabaseHandler;
 import sample.mods.Task;
+
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -17,7 +18,6 @@ import java.util.Calendar;
 public class AddingTaskController {
 
     private DatabaseHandler databaseHandler;
-    private int userId;
 
     @FXML
     private Label taskAddedLabel;
@@ -35,21 +35,6 @@ public class AddingTaskController {
     private TextField descriptionField;
 
     @FXML
-    private TextField taskTextFieldNew;
-
-    @FXML
-    private TextField descriptionFieldNew;
-
-    @FXML
-    private Button saveTaskButtonNew;
-
-    @FXML
-    private Button viewToDosButtonN;
-
-    @FXML
-    private Label taskAddedLabelN;
-
-    @FXML
     void initialize() {
         databaseHandler = new DatabaseHandler();
 
@@ -57,16 +42,16 @@ public class AddingTaskController {
 
             Task task = new Task();
             Calendar calendar = Calendar.getInstance();
-            Timestamp timestamp = new Timestamp(calendar.getTimeInMillis());      //java.sql.Timestamp
+            Timestamp timestamp = new Timestamp(calendar.getTimeInMillis());
 
             String taskToAdd = taskTextField.getText().trim();
             String taskDescription = descriptionField.getText().trim();
 
             if (!taskToAdd.equals("") || !taskDescription.equals("")) {
 
-                System.out.println("User Id: " + AddTask.userId);
+                System.out.println("User Id: " + Controller.userId);
 
-                task.setUserId(AddTask.userId);
+                task.setUserId(Controller.userId);
                 task.setDatecreated(timestamp);
                 task.setDescription(taskDescription);
                 task.setTask(taskToAdd);
@@ -81,6 +66,7 @@ public class AddingTaskController {
                 viewToDosButton.setVisible(true);
                 viewToDosButton.setOnAction(event1 -> {
                     //takes user to todoList itself
+                    //viewToDosButton.getScene().getWindow().hide();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/sample/ToDoList.fxml"));
                     try {
@@ -92,23 +78,17 @@ public class AddingTaskController {
                     Parent root = loader.getRoot();
                     Stage stage = new Stage();
                     stage.setScene(new Scene(root));
-                    stage.showAndWait();
+                    stage.show();
+                    closeButtonAction();
                 });
-
             } else {
                 System.out.println("Please, set the task and the description");
             }
-
         });
     }
 
-    public int getUserId() {
-        return this.userId;
+    private void closeButtonAction() {
+        Stage stage = (Stage) viewToDosButton.getScene().getWindow();
+        stage.close();
     }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-        System.out.println(this.userId);
-    }
-
 }
