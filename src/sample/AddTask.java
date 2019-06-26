@@ -33,9 +33,6 @@ public class AddTask {
         addTaskButtonB.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> {
             System.out.println("CLiCKED!");
 
-            addTaskButtonB.setOpacity(0);
-            noTaskForTodayText.setOpacity(0);
-
             try {
                 AnchorPane formPane = FXMLLoader.load(getClass().getResource("/sample/actualAddingTask.fxml"));
                 Controller.userId = getUserId();
