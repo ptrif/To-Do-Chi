@@ -42,6 +42,7 @@ public class ToDoListController {
             System.out.println("Go to Adding Task");
             showAddTask();
 
+
         });
 
         tasks = FXCollections.observableArrayList();
@@ -95,5 +96,5 @@ public class ToDoListController {
         closeButtonAction();
 
     }
-
+    
 }
