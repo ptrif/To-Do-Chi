@@ -1,11 +1,9 @@
 # To-Do-Chi
 A small ToDo List desktop app for me and my friends.
-Final project of 1st semester.
+Final project of 2nd semester.
 
 ## In near future
 1) Re-Design
-2) Improve user experience 
-3) Code all the buttons
 
 ## Preview
 
@@ -16,4 +14,4 @@ Final project of 1st semester.
 2. ToDo List itself
 
 
-![2019-06-09 (7)](https://user-images.githubusercontent.com/43094555/59163742-99a3df00-8b0d-11e9-9117-53e81df030f7.png)
+![2019-06-25](https://user-images.githubusercontent.com/43094555/60098286-d3a3f080-975d-11e9-8c28-d7b14556d837.png)
