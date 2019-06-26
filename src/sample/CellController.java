@@ -34,7 +34,7 @@ public class CellController extends JFXListCell<Task> {
     private DatabaseHandler databaseHandler;
 
     @FXML
-    void initialize() {
+    private void initialize() {
         if (fxmlLoader == null) {
             fxmlLoader = new FXMLLoader(getClass().getResource("/sample/cell.fxml"));
             fxmlLoader.setController(this);
@@ -64,6 +64,7 @@ public class CellController extends JFXListCell<Task> {
 
             deleteTaskButton.setOnAction(event -> {
                 databaseHandler = new DatabaseHandler();
+
                 try {
                     databaseHandler.deleteTask(Controller.userId, taskId);
 

@@ -8,9 +8,7 @@ import java.sql.*;
 public class DatabaseHandler extends Configurations {
 
     private Connection getDbConnection() throws ClassNotFoundException, SQLException {
-        String connectionString = "jdbc:mysql://" + dbHost
-                + ":" + dbPort
-                + "/" + dbName;
+        String connectionString = String.format("jdbc:mysql://%s:%s/%s", dbHost, dbPort, dbName);
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         return DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -99,33 +97,6 @@ public class DatabaseHandler extends Configurations {
         }
 
         return resultTasks;
-    }
-
-    public ResultSet getTask(Task task) {
-        ResultSet resultSet = null;
-
-        if (!task.getTask().equals("") || !task.getDescription().equals("")) {
-            String query = "select * from" + " " + Const.TASKS_TABLE
-                    + " where " + Const.TASKS_TASK + "=?"
-                    + " and " + Const.TASKS_DESCRIPTION + "=?"
-                    + " and " + Const.TASKS_DATE + "=?";
-
-            try {
-                PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
-                preparedStatement.setString(1, task.getTask());
-                preparedStatement.setString(2, task.getDescription());
-                preparedStatement.setTimestamp(3, task.getDatecreated());
-
-                resultSet = preparedStatement.executeQuery();
-
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-
-        } else
-            System.out.println("Please, enter your task");
-
-        return resultSet;
     }
 
     //delete task
